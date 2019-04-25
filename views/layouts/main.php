@@ -39,14 +39,16 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'Посты', 'url' => ['/post/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'Вход в admin', 'url' => ['/admin']],
-            ['label' => 'Вход в rbac', 'url' => ['/rbac']],
+            ['label' => 'Контракты', 'url' => ['/contracts/index']],
+            ['label' => 'Акты', 'url' => ['/acts/index']],
+            ['label' => 'Счета', 'url' => ['/bills/index']],
+            ['label' => 'Компании', 'url' => ['/companies/index']],
+            ['label' => 'Реквизиты', 'url' => ['/requisites/index']],
+            ['label' => 'Вход в админку', 'url' => ['/admin'],'visible' => Yii::$app->getUser()->can('adminAccess')],
             ['label' => 'Регистрация', 'url' => ['/site/signup']],
+
             Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['/site/login']]
+            ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')

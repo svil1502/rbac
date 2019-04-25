@@ -31,9 +31,22 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     $menuItems=[
-        ['label' => 'Главная', 'url' => ['/admin/default/index']],
-        ['label' => 'Посты', 'url' => ['/admin/post/index']],
+      //  ['label' => 'Главная', 'url' => ['/admin/default/index']],
+
+        ['label' => 'Контракты', 'url' => ['/admin/contracts/index']],
+        ['label' => 'Акты', 'url' => ['/admin/acts/index']],
+        ['label' => 'Счета', 'url' => ['/admin/bills/index']],
+        ['label' => 'Компании', 'url' => ['/admin/companies/index']],
+        ['label' => 'Реквизиты', 'url' => ['/admin/requisites/index']],
         ['label' => 'Пользователи', 'url' => ['/rbac/default/index']],
+        ['label' => 'Главная', 'url' => ['/site/index']],
+       // ['label' => 'Посты просмотр', 'url' => ['/post/index']],
+        //  ['label' => 'About', 'url' => ['/site/about']],
+        // ['label' => 'Contact', 'url' => ['/site/contact']],
+       // ['label' => 'Вход в admin', 'url' => ['/admin']],
+       // ['label' => 'Вход в rbac', 'url' => ['/rbac']],
+        ['label' => 'Регистрация', 'url' => ['/site/signup']],
+ //       ['label' => 'rbac/user', 'url' => ['/rbac/user']],
 
         Yii::$app->user->isGuest ? (
         ['label' => 'Войти', 'url' => ['/site/login']]

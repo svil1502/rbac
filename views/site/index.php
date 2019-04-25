@@ -1,53 +1,31 @@
-<?php
 
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
-?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Реализовано:</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Контроль доступа на основе ролей (RBAC) </p>
+<p style="text-align: justify">Функциональность RBAC обеспечивается через компонент приложения authManager с использованием класса yii\rbac\DbManager.
+    Использование RBAC состоит из двух частей. Первая часть — это создание RBAC данных авторизации,
+    и вторая часть — это использование данных авторизации для проверки доступа в том месте, где это нужно.
+    User (пароль 20042019) может просматривать посты (контракты, счета, реквизиты, компании, акты и их скачивать).
+    Manager (бухгалтер, пароль тот же) может редактировать посты, администратор (Admin, пароль тот же) может редактировать посты и делать всё, что может делать manager.
+    Приложение позволяет регистрировать пользователей, после чего необходимо сразу назначать роли этим новым пользователям.
+    Например, для того, чтобы все вошедшие пользователи могли читать посты, им нужно назначить роль user, у котрого есть дать разрешение
+    PostAccess (читать посты) в панели администратора RBAC.</p>
+        <p class="lead">CRUD GII </p>
+        <p style="text-align: justify">
+            При создании записей в contracts при выборе компании автоматически заполняется поле ОГРН.
+            При создании записей в bills при выборе номера договора автоматически предлагается выбор из имеющихся актов к этому договору.
+            Дата в БД хранится в UNIX формате.
+        </p>
+        <p class="lead">PhpWord </p>
+        <p style="text-align: justify">
+            Подключена библиотека PhpWord для генерации документов из созданных записей в БД по предложенным шаблонам,
+            которые скачиваются по ссылкам в таблицах contracts, bills, acts.
+        </p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
 
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
 
     </div>
 </div>

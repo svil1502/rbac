@@ -1,10 +1,11 @@
 <?php
-
+use kartik\datecontrol\Module;
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name'=>'Тестовое приложение',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -13,6 +14,16 @@ $config = [
     ],
     'language' => 'ru',
     'components' => [
+        'formatter' => [
+            'dateFormat' => 'd-M-Y',
+            'datetimeFormat' => 'd-M-Y H:i:s',
+            'timeFormat' => 'H:i:s',
+
+            'locale' => 'ru-RU', //your language locale
+
+            'defaultTimeZone' => 'Europe/Moscow', // time zone
+        ],
+
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
         ],
@@ -58,6 +69,31 @@ $config = [
 
     ],
     'modules' => [
+        'datecontrol' =>  [
+            'class' => 'kartik\datecontrol\Module',
+
+            // format settings for displaying each date attribute (ICU format example)
+            'displaySettings' => [
+                Module::FORMAT_DATE => 'dd-MM-yyyy',
+                //    Module::FORMAT_TIME => 'hh:mm:ss a',
+                //  Module::FORMAT_DATETIME => 'dd-MM-yyyy hh:mm:ss a',
+                //   dd-mm-Y H:i:s
+                // d.MM.yyyy H:mm:ss
+            ],
+
+            // format settings for saving each date attribute (PHP format example)
+            'saveSettings' => [
+                Module::FORMAT_DATE => 'php:U', // saves as unix timestamp
+                //    Module::FORMAT_TIME => 'php:H:i:s',
+                //   Module::FORMAT_DATETIME => 'php:Y-m-d H:i:s',
+            ],
+
+            // set your display timezone
+            'displayTimezone' => 'Europe/Moscow',
+
+            // set your timezone for date saved to db
+            'saveTimezone' => 'Europe/Moscow'
+        ],
         'admin' => [
             'class' => 'app\modules\admin\Module',
         ],
@@ -80,7 +116,7 @@ $config = [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-           // 'admin/*',
+          //  'admin/*',
            // 'rbac/*',
            // 'post/index',
 
